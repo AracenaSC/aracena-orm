@@ -1,14 +1,14 @@
 # Aracena ORM
 
 ## Project Description
-Something like: A java based ORM for simplifying connecting to and from an SQL database without the need for SQL or connection management. 
+A java based ORM for simplifying connecting to and from an SQL database without the need for SQL or connection management.
 
 ## Technologies Used
-
 * PostgreSQL - version 42.2.12  
 * Java - version 8.0  
 * Apache commons - version 2.1  
 * JUnit
+* Log4J
 
 ## Features
 
@@ -27,31 +27,30 @@ To-do list: [`for future iterations`]
 ## Getting Started  
 Currently project must be included as local dependency. to do so:
 ```shell
-  git clone https://github.com/210517-Enterprise/*your-repo*_p1.git
-  cd *your-repo*_p1
+  git clone https://github.com/AracenaSC/aracena-orm.git
+  cd aracena-orm
   mvn install
 ```
 Next, place the following inside your project pom.xml file:
 ```XML
   <dependency>
     <groupId>com.revature</groupId>
-    <artifactId>*your-repo*_p1</artifactId>
-    <version>1.0-SNAPSHOT</version>
+	  <artifactId>caracena-project-1</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
   </dependency>
 
 ```
 
-Finally, inside your project structure you need a application.proprties file. 
- (typically located src/main/resources/)
+Finally, inside your project structure you need a application.proprties file in src/main/resources/
  ``` 
-  url=path/to/database
-  admin-usr=username/of/database
-  admin-pw=password/of/database  
+  url= path/to/your/database
+  username= your database username
+  password= your database password  
   ```
   
 ## Usage  
   ### Annotating classes  
-  All classes which represent objects in database must be annotated.
+  All classes which represent objects in your database must be annotated.
    - #### @Table(name = "table_name)  
       - Indicates that this class is associated with table 'table_name'  
    - #### @Column(name = "column_name)  
@@ -62,16 +61,12 @@ Finally, inside your project structure you need a application.proprties file.
       - Indicates that the anotated method is a getter for 'column_name'.  
    - #### @PrimaryKey(name = "column_name") 
       - Indicates that the annotated field is the primary key for the table.
-   - #### @SerialKey(name = "column_name") 
-      - Indicates that the annotated field is a serial key.
 
   ### User API  
   
   - #### `public static Something getInstance()`  
      - returns the singleton instance of the class. It is the starting point to calling any of the below methods.  
-  - #### `public HashMap<Class<?>, HashSet<Object>> getCache()`  
-     - returns the cache as a HashMap.  
-  - #### `public boolean addClass(final Class<?> clazz)`  
+  - #### `public boolean insert(Class<?> clazz)`  
      - Adds a class to the ORM. This is the method to use to declare a Class is an object inside of the database.  
   - #### `public boolean UpdateObjectInDB(final Object obj,final String update_columns)`  
      - Updates the given object in the databse. Update columns is a comma seperated lsit fo all columns in the onject which need to be updated  
