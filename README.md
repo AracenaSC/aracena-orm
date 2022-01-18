@@ -63,12 +63,6 @@ config.setConnection("your database url", "your database username", "your databa
       - **joinedColumn**: Indicates the foreign column that this column is referencing
       - **joinedTable**: Indicates the table that the referenced column comes from
       
-
-### User API  
-
-  - #### `public static Something getInstance()`  
-     - returns the singleton instance of the class. It is the starting point to calling any of the below methods.  
-  
 ## License
 
 This project uses the following license: [GNU Public License 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
