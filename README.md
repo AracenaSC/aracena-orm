@@ -24,13 +24,13 @@ To-do list: [`for future iterations`]
 * * etc...
 
 ## Getting Started  
-Currently project must be included as local dependency. to do so:
+Currently project must be included as local dependency. To do so open your terminal of choice and run the following commands:
 ```shell
   git clone https://github.com/AracenaSC/aracena-orm.git
   cd aracena-orm
   mvn install
 ```
-Next, place the following inside your project pom.xml file:
+Next, place the following inside your project's pom.xml file:
 ```XML
 <dependency>
 	<groupId>com.revature</group>
@@ -39,12 +39,13 @@ Next, place the following inside your project pom.xml file:
 </dependency>
 ```
 
-Finally, inside your project structure you need an application.proprties file in src/main/resources/
+Finally, inside your project structure you will need to create an application.proprties file in src/main/resources/ containing the following:
  ``` 
-  url= path to your database
-  username= your database username
-  password= your database password  
+  url= [path to your database]
+  username= [your database username]
+  password= [your database password]  
   ```
+  Without the brackets
   
 ## Usage  
   ### Annotating classes  
