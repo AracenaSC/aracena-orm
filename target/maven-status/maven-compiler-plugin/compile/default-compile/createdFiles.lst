@@ -1,0 +1,10 @@
+com\aracenasc\annotations\JoinColumn.class
+com\aracenasc\util\PrimaryKeyField.class
+com\aracenasc\annotations\Column.class
+com\aracenasc\annotations\Entity.class
+com\aracenasc\util\ColumnField.class
+com\aracenasc\util\ForeignKeyField.class
+com\aracenasc\util\MetaModel.class
+com\aracenasc\annotations\Id.class
+com\aracenasc\util\Configuration.class
+com\aracenasc\dao\CRUD.class
