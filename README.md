@@ -49,9 +49,10 @@ config.setConnection("your database url", "your database username", "your databa
   All classes which represent objects in your database must be annotated.
    - #### @Entity(tableName = "`table name`")
       - ***All objects must have this Annotation***
-      - Indicates the table this object is associated with 
+      - Indicates the table this object is associated with
    - #### @Id(columnName = "`column name`")
-      - Indicates that the Annotated field is the primary key field 
+      - Indicates that the Annotated field is the primary key field
+      - **columnName**: Indicates the name of the primary key column
    - #### @Column(columnName = "`column name`", dataType ="`specified data type`", unique ="`false`", nullable="`true`")  
       - **columnName**: Indicates the name of the Annotated field
       - **dataType**: Indicates the datatype of the Annotated field `(varchar, numeric, boolean, etc)`
