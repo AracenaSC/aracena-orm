@@ -1,7 +1,7 @@
 # Aracena ORM
 
 ## Project Description
-A java based ORM for simplifying connecting to and from an SQL database without the need for SQL or connection management.
+A java based ORM for simplifying the process of connecting to and from an SQL database without the need for SQL or connection management.
 
 ## Technologies Used
 * PostgreSQL - version 42.2.12  
@@ -13,16 +13,15 @@ A java based ORM for simplifying connecting to and from an SQL database without 
 ## Features
 
 List of features ready and TODOs for future development  
-* Easy to use and straightforward user API.  
-* No need for SQL, HQL, or any databse specific language.  
-* Straightforward and simple Annotation based for ease of use. 
-* etc...
+* Easy to use and straightforward user API.
+* No need for SQL, HQL, or any databse specific language.
+* Straightforward and simple Annotation based for ease of use.
+* Ability to build tables based on Annotations in Entities.
 
 To-do list: [`for future iterations`]
-* Mapping of join columns inside of entities.    
-* Implement of aggregate functions.  
-* Allow ORM to build table based on Annotations in Entities.  
-* etc...
+* Mapping of join columns inside of entities.
+* Implement aggregate functions.
+* * etc...
 
 ## Getting Started  
 Currently project must be included as local dependency. to do so:
@@ -33,17 +32,16 @@ Currently project must be included as local dependency. to do so:
 ```
 Next, place the following inside your project pom.xml file:
 ```XML
-  <dependency>
-    <groupId>com.revature</groupId>
-	  <artifactId>caracena-project-1</artifactId>
-	  <version>0.0.1-SNAPSHOT</version>
-  </dependency>
-
+<dependency>
+	<groupId>com.revature</group>
+	<artifactId>caracena-project-1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+</dependency>
 ```
 
-Finally, inside your project structure you need a application.proprties file in src/main/resources/
+Finally, inside your project structure you need an application.proprties file in src/main/resources/
  ``` 
-  url= path/to/your/database
+  url= path to your database
   username= your database username
   password= your database password  
   ```
@@ -51,23 +49,17 @@ Finally, inside your project structure you need a application.proprties file in 
 ## Usage  
   ### Annotating classes  
   All classes which represent objects in your database must be annotated.
-   - #### @Table(name = "table_name)  
+   - #### @Entity(name = "table_name)
       - Indicates that this class is associated with table 'table_name'  
    - #### @Column(name = "column_name)  
-      - Indicates that the Annotated field is a column in the table with the name 'column_name'  
-   - #### @Setter(name = "column_name")  
-      - Indicates that the anotated method is a setter for 'column_name'.  
-   - #### @Getter(name = "column_name")  
-      - Indicates that the anotated method is a getter for 'column_name'.  
-   - #### @PrimaryKey(name = "column_name") 
-      - Indicates that the annotated field is the primary key for the table.
+      - Indicates that the Annotated field is a column in the table with the name 'column_name' 
 
-  ### User API  
+### User API  
   
   - #### `public static Something getInstance()`  
      - returns the singleton instance of the class. It is the starting point to calling any of the below methods.  
   - #### `public boolean insert(Class<?> clazz)`  
-     - Adds a class to the ORM. This is the method to use to declare a Class is an object inside of the database.  
+     - Adds a class to the ORM. This is the method to use to declare a Class is an object inside of the database.
   - #### `public boolean UpdateObjectInDB(final Object obj,final String update_columns)`  
      - Updates the given object in the databse. Update columns is a comma seperated lsit fo all columns in the onject which need to be updated  
   - #### `public boolean removeObjectFromDB(final Object obj)`  
