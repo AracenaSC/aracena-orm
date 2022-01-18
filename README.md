@@ -44,17 +44,27 @@ Finally, you must create a Configuration object and set its connection in a driv
 Configuration config = new Configuration();
 config.setConnection("your database url", "your database username", "your database password");
 ```
-## Usage  
+### Usage  
   ### Annotating classes  
   All classes which represent objects in your database must be annotated.
-   - #### @Entity(name = "table_name)
-      - Indicates that this class is associated with table 'table_name'  
-   - #### @Column(name = "column_name, dataType ="datatype")  
-      - Indicates that the Annotated field is a column in the table with the name 'column_name' and a specified data type
-      - E.g. @Column(name = "a_word", dataType ="varchar")
+   - #### @Entity(tableName = "`table name`")
+      - ***All objects must have this Annotation***
+      - Indicates the table this object is associated with 
+   - #### @Id(columnName = "`column name`")
+      - Indicates that the Annotated field is the primary key field 
+   - #### @Column(columnName = "`column name`", dataType ="`specified data type`", unique ="`false`", nullable="`true`")  
+      - **columnName**: Indicates the name of the Annotated field
+      - **dataType**: Indicates the datatype of the Annotated field `(varchar, numeric, boolean, etc)`
+      - **unique**: (*optional*) Indicates that the Annotated field's column name cannot already exist in the table. Set to `false` by default.
+      - **nullable**: (*optional*) Indicates that the Annotated field can be null. Set to `true` by default.
+   - #### @JoinColumn(columnName = "`column name`", joinedColumn = "`refrenced column`",joinedTable = "`referenced table`")
+      - **columnName**: Indicates the name of the Annotated field
+      - **joinedColumn**: Indicates the foreign column that this column is referencing
+      - **joinedTable**: Indicates the table that the referenced column comes from
+      
 
 ### User API  
-  
+
   - #### `public static Something getInstance()`  
      - returns the singleton instance of the class. It is the starting point to calling any of the below methods.  
   
