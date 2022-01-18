@@ -20,8 +20,7 @@ List of features ready and TODOs for future development
 
 To-do list: [`for future iterations`]
 * Mapping of join columns inside of entities.
-* Implement aggregate functions.
-* * etc...
+* Implement 
 
 ## Getting Started  
 Currently project must be included as local dependency. To do so open your terminal of choice and run the following commands:
@@ -34,26 +33,24 @@ Next, place the following inside your project's pom.xml file:
 ```XML
 <dependency>
 	<groupId>com.revature</group>
-	<artifactId>caracena-project-1</artifactId>
+	<artifactId>aracenaORM</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
 
-Finally, inside your project structure you will need to create an application.proprties file in src/main/resources/ containing the following:
- ``` 
-  url= [path to your database]
-  username= [your database username]
-  password= [your database password]  
-  ```
-  Without the brackets
-  
+Finally, you must create a Configuration object and set it's connection
+```java
+Configuration config = new Configuration();
+config.setConnection("your database url", "your database username", "your database password");
+```
 ## Usage  
   ### Annotating classes  
   All classes which represent objects in your database must be annotated.
    - #### @Entity(name = "table_name)
       - Indicates that this class is associated with table 'table_name'  
-   - #### @Column(name = "column_name)  
-      - Indicates that the Annotated field is a column in the table with the name 'column_name' 
+   - #### @Column(name = "column_name, dataType ="datatype")  
+      - Indicates that the Annotated field is a column in the table with the name 'column_name' and a specified data type
+      - E.g. @Column(name = "a_word", dataType ="varchar")
 
 ### User API  
   
@@ -90,7 +87,6 @@ Finally, inside your project structure you will need to create an application.pr
      - Start a transaction block.  
   - #### `public void addAllFromDBToCache(final Class<?> clazz)`  
      - Adds all objects currently in the databse of the given clas type to the cache.  
-
 
 
 ## License
